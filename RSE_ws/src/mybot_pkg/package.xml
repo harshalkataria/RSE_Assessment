@@ -51,15 +51,30 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
+
+  <!-- Need to include dependencies on the other packages within the workspace to resolve build errors -->
+  <build_depend>velodyne_description</build_depend>
+  <build_depend>velodyne_gazebo_plugins</build_depend>
+  <build_depend>realsense2_description</build_depend>
+  
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
 
+  <!-- Need to include exec dependencies on the other packages within the workspace -->
+  <exec_depend>velodyne_description</exec_depend>
+  <exec_depend>velodyne_gazebo_plugins</exec_depend>
+  <exec_depend>realsense2_description</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
+    
+    <!-- Include gazebo_model_path to resolve error of not loading all required models -->
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <gazebo_ros gazebo_media_path="${prefix}/models"/>
 
   </export>
 </package>
