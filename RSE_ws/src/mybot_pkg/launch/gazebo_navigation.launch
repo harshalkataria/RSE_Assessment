@@ -32,6 +32,7 @@
         <node pkg="controller_manager" type="spawner" name="controller_spawner" ns="$(arg namespace)"
             args="joint_state_publisher ackermann_steering_controller"
             output="screen" respawn="false" />
+        <remap from="/steer_bot/ackermann_steering_controller/cmd_vel"      to="/cmd_vel"/>
 
         <!-- Launch  the robot state publisher -->
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
